@@ -5,7 +5,7 @@
 //  Created by Md. Faysal Ahmed on 25/11/22.
 //
 
-// MARK: - If this API doesn't work please update StoreData.swift from JSON link
+// MARK: - If this API doesn't work please update DataStorage.swift from JSON link
 
 import UIKit
 
