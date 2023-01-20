@@ -1,7 +1,11 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
 //
-//   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
+//  ViewController.swift
+//  WeatherUpdate
+//
+//  Created by Md. Faysal Ahmed on 25/11/22.
+//
+
+// MARK: - Due to third party JSON, change this file if API doesn't work. From: "https://api.weatherapi.com/v1/forecast.json?key=8a1f9ffaa74a4b3d85f62252223103&q=Dhaka&days=10&aqi=no&alerts=no"
 
 import Foundation
 
@@ -33,7 +37,8 @@ class Current: Codable {
     let precipMm, precipIn, humidity, cloud: Int
     let feelslikeC, feelslikeF: Double
     let visKM, visMiles, uv: Int
-    let gustMph, gustKph: Double
+    let gustMph: Double
+    let gustKph: Int
 
     enum CodingKeys: String, CodingKey {
         case lastUpdatedEpoch = "last_updated_epoch"
@@ -60,7 +65,7 @@ class Current: Codable {
         case gustKph = "gust_kph"
     }
 
-    init(lastUpdatedEpoch: Int, lastUpdated: String, tempC: Double, tempF: Double, isDay: Int, condition: Condition, windMph: Double, windKph: Double, windDegree: Int, windDir: WindDir, pressureMB: Int, pressureIn: Double, precipMm: Int, precipIn: Int, humidity: Int, cloud: Int, feelslikeC: Double, feelslikeF: Double, visKM: Int, visMiles: Int, uv: Int, gustMph: Double, gustKph: Double) {
+    init(lastUpdatedEpoch: Int, lastUpdated: String, tempC: Double, tempF: Double, isDay: Int, condition: Condition, windMph: Double, windKph: Double, windDegree: Int, windDir: WindDir, pressureMB: Int, pressureIn: Double, precipMm: Int, precipIn: Int, humidity: Int, cloud: Int, feelslikeC: Double, feelslikeF: Double, visKM: Int, visMiles: Int, uv: Int, gustMph: Double, gustKph: Int) {
         self.lastUpdatedEpoch = lastUpdatedEpoch
         self.lastUpdated = lastUpdated
         self.tempC = tempC
@@ -111,11 +116,13 @@ enum Text: String, Codable {
 }
 
 enum WindDir: String, Codable {
+    case ene = "ENE"
     case n = "N"
     case ne = "NE"
     case nne = "NNE"
     case nnw = "NNW"
     case nw = "NW"
+    case wnw = "WNW"
 }
 
 // MARK: - Forecast
